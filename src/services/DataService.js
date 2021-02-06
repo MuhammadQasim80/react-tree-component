@@ -1,9 +1,9 @@
-import { data } from './data';
+import {data} from './data';
 
 const DataService = {
-    getData: () => {
-        return data;
-    }
-}
+  getData: () => {
+    return Promise.resolve(data);
+  },
+};
 
 export default DataService;

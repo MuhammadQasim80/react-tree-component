@@ -7,16 +7,17 @@ function App() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setData(DataService.getData());
-    }, 1500);
+    DataService.getData().then((data) => {
+      setData(data);
+    });
   });
 
-  return (
-    !data || data.length === 0 ? <div> Loading ... </div> :
-      <div>
-        <TreeComponent data={data} />
-      </div>
+  return !data || data.length === 0 ? (
+    <div> Loading ... </div>
+  ) : (
+    <div>
+      <TreeComponent data={data} />
+    </div>
   );
 }
 
